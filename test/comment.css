@@ -1,0 +1,48 @@
+.a {
+	/* wcag-params: #fff */
+	color: #000;
+}
+
+.b {
+	/* wcag-params: #777 */
+	color: #000;
+}
+
+.c {
+	/* wcag-params: #444 */
+	color: #000;
+}
+
+.d {
+	/* wcag-params: 18pt #fff */
+	color: #000;
+}
+
+.e {
+	/* wcag-params: 18pt #777 */
+	color: #000;
+}
+
+.f {
+	/* wcag-params: 18pt #444 */
+	color: #000;
+}
+
+.g {
+	/* wcag-params: bold 14pt #fff */
+	color: #000;
+}
+
+.h {
+	/* wcag-params: bold 14pt #777 */
+	color: #000;
+}
+
+.i {
+	/* wcag-params: bold 14pt #444 */
+	color: #000;
+}
+
+.j {
+	color: #000;
+}

@@ -1,0 +1,39 @@
+.a {
+	background-color: #fff;
+	color: #000;
+}
+
+.b {
+	background-color: #ccc;
+	color: #000;
+}
+
+.c {
+	background-color: #777;
+	color: #000;
+}
+
+.d {
+	background-color: #444;
+	color: #000;
+}
+
+.e {
+	background-color: #111;
+	color: #000;
+}
+
+.f {
+	background: #fff url(kitten.jpg);
+	color: #000;
+}
+
+.g {
+	background: #777 url(kitten.jpg);
+	color: #000;
+}
+
+.h {
+	/* wcag-contrast: #eee */
+	color: #333;
+}

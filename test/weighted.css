@@ -1,0 +1,52 @@
+.a {
+	background-color: #fff;
+	color: #000;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.b {
+	background-color: #ccc;
+	color: #000;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.c {
+	background-color: #777;
+	color: #000;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.d {
+	background-color: #444;
+	color: #000;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.e {
+	background-color: #111;
+	color: #000;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.f {
+	background-color: #777;
+	color: #000;
+	font: 18pt serif;
+}
+
+.g {
+	background-color: #777;
+	color: #000;
+	font: bold 14pt serif;
+}
+
+.h {
+	background-color: #777;
+	color: #000;
+	font: 14pt serif;
+}

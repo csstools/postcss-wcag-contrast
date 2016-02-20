@@ -1,0 +1,35 @@
+.a {
+	background-color: #fff;
+	color: #000;
+	font-size: 18pt;
+}
+
+.b {
+	background-color: #ccc;
+	color: #000;
+	font-size: 18pt;
+}
+
+.c {
+	background-color: #777;
+	color: #000;
+	font-size: 18pt;
+}
+
+.d {
+	background-color: #444;
+	color: #000;
+	font-size: 18pt;
+}
+
+.e {
+	background-color: #111;
+	color: #000;
+	font-size: 18pt;
+}
+
+.f {
+	background-color: #111;
+	color: #000;
+	font: 18pt sans-serif;
+}

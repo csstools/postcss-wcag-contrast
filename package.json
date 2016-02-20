@@ -1,0 +1,55 @@
+{
+  "name": "postcss-wcag-contrast",
+  "version": "1.0.0",
+  "description": "Check for WCAG color contrast compliance",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "aa",
+    "aaa",
+    "analyse",
+    "analyze",
+    "blues",
+    "colors",
+    "compliances",
+    "contrasts",
+    "greens",
+    "guards",
+    "lints",
+    "luminances",
+    "luminosity",
+    "minimum",
+    "ratios",
+    "ratios",
+    "reds",
+    "rgbs",
+    "specifications",
+    "specs",
+    "wcag"
+  ],
+  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/postcss-wcag-contrast",
+  "homepage": "https://github.com/jonathantneal/postcss-wcag-contrast#readme",
+  "bugs": "https://github.com/jonathantneal/postcss-wcag-contrast/issues",
+  "dependencies": {
+    "onecolor": "^2.5.0",
+    "postcss": "^5.0.14"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "jscs": "^2.10.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
+  },
+  "scripts": {
+    "lint": "eslint *.js --ignore-path .gitignore && jscs *.js",
+    "tape": "tape test.js | tap-spec",
+    "test": "npm run lint && npm run tape"
+  },
+  "engines": {
+    "iojs": ">=2.0.0",
+    "node": ">=0.12.0"
+  }
+}
