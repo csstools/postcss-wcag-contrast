@@ -109,15 +109,7 @@ module.exports = postcss.plugin('postcss-wcag-contrast', function (rawopts) {
 				fontweight = fallbackweight || 400;
 			}
 
-			// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-			var backgroundLuminance = getRelativeLuminance(background);
-			var foregroundLuminance = getRelativeLuminance(foreground);
-
-			// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
-			var L1 = Math.max(backgroundLuminance, foregroundLuminance);
-			var L2 = Math.min(backgroundLuminance, foregroundLuminance);
-
-			var contrastRatio = getContrastRatio(L1, L2);
+			var contrastRatio = getContrastRatio(foreground, background);
 
 			// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#larger-scaledef
 			var isLargeScale = fontsize >= 24 || fontsize >= 14 * (96 / 72) && fontweight >= 700;
@@ -145,6 +137,7 @@ module.exports = postcss.plugin('postcss-wcag-contrast', function (rawopts) {
 });
 
 function getRelativeLuminance(cssColor) {
+	// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
 	var color = onecolor(cssColor);
 
 	var R = color._red   <= 0.03928 ? color._red   / 12.92 : Math.pow((color._red   + 0.055) / 1.055, 2.4);
@@ -156,8 +149,12 @@ function getRelativeLuminance(cssColor) {
 	return L;
 }
 
-function getContrastRatio(L1, L2) {
-	return (L1 + 0.05) / (L2 + 0.05);
+function getContrastRatio(foreground, background) {
+	var L1 = getRelativeLuminance(background);
+	var L2 = getRelativeLuminance(foreground));
+
+	// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
+	return (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
 }
 
 function getFontSize(cssLength) {
