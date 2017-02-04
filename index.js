@@ -149,9 +149,22 @@ function getRelativeLuminance(cssColor) {
 	return L;
 }
 
+function alphaBlend(cssForeground, cssBackground) {
+	var foreground = onecolor(cssForeground);
+	var background = onecolor(cssBackground);
+	var result = onecolor('#fff');
+	var a = foreground.alpha();
+
+	result._red   = foreground._red   * a + background._red   * (1 - a);
+	result._green = foreground._green * a + background._green * (1 - a);
+	result._blue  = foreground._blue  * a + background._blue  * (1 - a);
+
+	return result;
+}
+
 function getContrastRatio(foreground, background) {
 	var L1 = getRelativeLuminance(background);
-	var L2 = getRelativeLuminance(foreground));
+	var L2 = getRelativeLuminance(alphaBlend(foreground, background));
 
 	// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
 	return (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
