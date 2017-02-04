@@ -162,12 +162,29 @@ function alphaBlend(cssForeground, cssBackground) {
 	return result;
 }
 
-function getContrastRatio(foreground, background) {
+function getContrastRatioOpaque(foreground, background) {
 	var L1 = getRelativeLuminance(background);
 	var L2 = getRelativeLuminance(alphaBlend(foreground, background));
 
 	// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
 	return (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
+}
+
+function getContrastRatio(foreground, background) {
+	var backgroundOnWhite = alphaBlend(background, '#fff');
+	var backgroundOnBlack = alphaBlend(background, '#000');
+
+	var LWhite = getRelativeLuminance(backgroundOnWhite);
+	var LBlack = getRelativeLuminance(backgroundOnBlack);
+	var LForeground = getRelativeLuminance(foreground);
+
+	if (LWhite < LForeground) {
+		return getContrastRatioOpaque(foreground, backgroundOnWhite);
+	} else if (LBlack > LForeground) {
+		return getContrastRatioOpaque(foreground, backgroundOnBlack);
+	} else {
+		return 1;
+	}
 }
 
 function getFontSize(cssLength) {
