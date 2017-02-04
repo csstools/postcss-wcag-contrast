@@ -43,6 +43,17 @@ var tests = {
 			options: {
 				compliance: 'AAA'
 			}
+		},
+		'alpha': {
+			message: 'supports alpha transparancy',
+			warning: 4
+		},
+		'alpha:aaa': {
+			message: 'supports alpha transparancy',
+			warning: 6,
+			options: {
+				compliance: 'AAA'
+			}
 		}
 	}
 };
