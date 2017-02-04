@@ -1,0 +1,39 @@
+.a {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: #fff;
+}
+
+.b {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+
+.c {
+	background-color: rgba(0, 0, 0, 0.6);
+	color: #fff;
+}
+
+.d {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
+}
+
+.e {
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.f {
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.g {
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.h {
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.7);
+}
