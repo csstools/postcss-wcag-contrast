@@ -1,20 +1,22 @@
-# WCAG Contrast
+# WCAG Contrast [<img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS Logo" width="90" height="90" align="right">][postcss]
 
-<a href="https://github.com/postcss/postcss"><img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS Logo" width="80" height="80" align="right"></a>
+[![NPM Version][npm-img]][npm-url]
+[![Linux Build Status][cli-img]][cli-url]
+[![Windows Build Status][win-img]][win-url]
+[![Gitter Chat][git-img]][git-url]
 
-[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
-
-[WCAG Contrast] checks CSS for [color contrast compliance] with [Web Content Accessibility Guidelines (WCAG) 2.0].
+[WCAG Contrast] checks CSS for [color contrast compliance] with
+[Web Content Accessibility Guidelines (WCAG) 2.0].
 
 ```css
 .header {
-	background-color: #444;
-	color: #000; /* throws a warning for a low contrast of only 2.2 */
+  background-color: #444;
+  color: #000; /* throws a warning for a low contrast of only 2.2 */
 }
 
 .footer {
-	/* wcag-params: bold 14pt #777 */
-	color: #000; /* throws no warning when text is bold 14pt and contrast is 4.7 */
+  /* wcag-params: bold 14pt #777 */
+  color: #000; /* throws no warning when text is bold 14pt and contrast is 4.7 */
 }
 ```
 
@@ -28,8 +30,10 @@ npm install postcss-wcag-contrast --save-dev
 
 #### Node
 
+Use [WCAG Contrast] to process your CSS:
+
 ```js
-require('postcss-wcag-contrast').process(YOUR_CSS, { /* options */ });
+require('postcss-wcag-contrast').process(YOUR_CSS);
 ```
 
 #### PostCSS
@@ -40,12 +44,12 @@ Add [PostCSS] to your build tool:
 npm install postcss --save-dev
 ```
 
-Load [WCAG Contrast] as a PostCSS plugin:
+Use [WCAG Contrast] as a plugin:
 
 ```js
 postcss([
-	require('postcss-wcag-contrast')({ /* options */ })
-]).process(YOUR_CSS, /* options */);
+  require('postcss-wcag-contrast')()
+]).process(YOUR_CSS);
 ```
 
 #### Gulp
@@ -56,19 +60,19 @@ Add [Gulp PostCSS] to your build tool:
 npm install gulp-postcss --save-dev
 ```
 
-Enable [WCAG Contrast] within your Gulpfile:
+Use [WCAG Contrast] in your Gulpfile:
 
 ```js
 var postcss = require('gulp-postcss');
 
 gulp.task('css', function () {
-	return gulp.src('./src/*.css').pipe(
-		postcss([
-			require('postcss-wcag-contrast')({ /* options */ })
-		])
-	).pipe(
-		gulp.dest('.')
-	);
+  return gulp.src('./src/*.css').pipe(
+    postcss([
+      require('postcss-wcag-contrast')()
+    ])
+  ).pipe(
+    gulp.dest('.')
+  );
 });
 ```
 
@@ -80,50 +84,55 @@ Add [Grunt PostCSS] to your build tool:
 npm install grunt-postcss --save-dev
 ```
 
-Enable [WCAG Contrast] within your Gruntfile:
+Use [WCAG Contrast] in your Gruntfile:
 
 ```js
 grunt.loadNpmTasks('grunt-postcss');
 
 grunt.initConfig({
-	postcss: {
-		options: {
-			use: [
-				require('postcss-wcag-contrast')({ /* options */ })
-			]
-		},
-		dist: {
-			src: '*.css'
-		}
-	}
+  postcss: {
+    options: {
+      use: [
+        require('postcss-wcag-contrast')()
+      ]
+    },
+    dist: {
+      src: '*.css'
+    }
+  }
 });
 ```
 
 ## Options
 
-##### `compliance`
+### compliance
 
 Type: `String`  
 Default: `"AA"`
 
-Specifies the WCAG compliance the CSS will be evaluated against.
+The `compliance` option specifies the WCAG compliance the CSS will be evaluated
+against.
 
-##### `wcag-params`
+### wcag-params
 
 Type: `CSS Comment`
 
-Specifies additional font size, font weight, background, and foreground information about the rule.
+The `wcag-params` specifies additional font size, font weight, background, and
+foreground information about the rule.
 
-[ci]:      https://travis-ci.org/jonathantneal/postcss-wcag-contrast
-[ci-img]:  https://img.shields.io/travis/jonathantneal/postcss-wcag-contrast.svg
-[npm]:     https://www.npmjs.com/package/postcss-wcag-contrast
+[npm-url]: https://www.npmjs.com/package/postcss-wcag-contrast
 [npm-img]: https://img.shields.io/npm/v/postcss-wcag-contrast.svg
+[cli-url]: https://travis-ci.org/jonathantneal/postcss-wcag-contrast
+[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-wcag-contrast.svg
+[win-url]: https://ci.appveyor.com/project/jonathantneal/postcss-wcag-contrast
+[win-img]: https://img.shields.io/appveyor/ci/jonathantneal/postcss-wcag-contrast.svg
+[git-url]: https://gitter.im/postcss/postcss
+[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg
 
-[Gulp PostCSS]:  https://github.com/postcss/gulp-postcss
+[WCAG Contrast]: https://github.com/jonathantneal/postcss-wcag-contrast
+[PostCSS]: https://github.com/postcss/postcss
+[Gulp PostCSS]: https://github.com/postcss/gulp-postcss
 [Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss
-[PostCSS]:       https://github.com/postcss/postcss
 
 [color contrast compliance]: https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
 [Web Content Accessibility Guidelines (WCAG) 2.0]: https://www.w3.org/TR/WCAG20/
-
-[WCAG Contrast]: https://github.com/jonathantneal/postcss-wcag-contrast
