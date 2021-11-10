@@ -34,6 +34,6 @@
 }
 
 .h {
-	/* wcag-contrast: #eee */
+	/* wcag-params: #eee */
 	color: #333;
 }
