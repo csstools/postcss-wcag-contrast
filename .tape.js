@@ -64,6 +64,11 @@ module.exports = {
 				compliance: 'AAA'
 			},
 			expect: 'alpha.css'
-		}
+		},
+		'named-colors': {
+			message: 'supports named colors',
+			warning: 4,
+			expect: 'named-colors.css'
+		},
 	}
 };

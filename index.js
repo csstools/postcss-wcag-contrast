@@ -1,6 +1,7 @@
 'use strict';
 
 const onecolor = require('onecolor');
+const expand   = require('css-shorthand-expand');
 const postcss  = require('postcss');
 const comma    = postcss.list.comma;
 const space    = postcss.list.space;
@@ -63,12 +64,11 @@ module.exports = postcss.plugin('postcss-wcag-contrast', (opts) => {
 				} else if (node.prop === 'background') {
 					// split background by comma and space
 					comma(node.value).forEach((commaSplitValue) => {
-						space(commaSplitValue).forEach((spaceSplitValue) => {
-							// conditionally set the the background color
-							if (cssColorRegExp.test(spaceSplitValue)) {
-								background = spaceSplitValue;
-							}
-						});
+						const expanded = expand('background', commaSplitValue);
+
+						if (expanded['background-color']) {
+							background = expanded['background-color'];
+						}
 					});
 				} else if (node.type === 'comment') {
 					if (cssParamsRegExp.test(node.text)) {
