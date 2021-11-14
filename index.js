@@ -62,7 +62,7 @@ module.exports = postcss.plugin('postcss-wcag-contrast', (opts) => {
 						}
 					});
 				} else if (node.prop === 'background') {
-					// split background by comma and space
+					// split background by comma
 					comma(node.value).forEach((commaSplitValue) => {
 						const expanded = expand('background', commaSplitValue);
 
